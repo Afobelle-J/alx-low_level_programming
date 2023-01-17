@@ -1,36 +1,36 @@
 #include "main.h"
 #include <stdio.h>
 
-int _sqrt(int n, int i);
+int check_prime(int n, int i);
 
 /**
-  * _sqrt_recursion - Returns the natural square root of a number
-  * @n: number to calculate the natural square root
+  * is_prime_number - Returns if a number is prime
+  * @n: the number to be checked
   *
-  * Return: the natural square root
+  * Return: integer value
   */
-int _sqrt_recursion(int n)
+int is_prime_number(int n)
 {
-	return (_sqrt(n, 1));
+	return (check_prime(n, 1));
 }
 
 /**
-  * _sqrt - Calculates natural square root
-  * @n: number to calculate the square root
-  * @i: iterate number
+  * check_prime - Check if number is prime
+  * @n: the number to be checked
+  * @i: the iteration times
   *
-  * Return: the natural square root
+  * Return: 1 for prime or 0 composite
   */
-int _sqrt(int n, int i)
+int check_prime(int n, int i)
 {
-	int sqrt = i * i;
+	if (n <= 1)
+		return (0);
 
-	if (sqrt > n)
-		return (-1);
+	if (n % i == 0 && i > 1)
+		return (0);
 
-	if (sqrt == n)
-		return (i);
+	if ((n / i) < i)
+		return (1);
 
-	return (_sqrt(n, i + 1));
+	return (check_prime(n, i + 1));
 }
-
