@@ -1,0 +1,2 @@
+#!/bin/bash
+git push https://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@github.com/username/$1
